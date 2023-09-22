@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/test.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Html practice</title>
+    <style>
+        .one{
+            height: 236px;
+            width: 1158px;
+            margin: 5rem auto;
+            border: 5px solid red;
+            background-color: rgb(242, 229, 157);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="one">246px X 1168px</div>   -->
+    <button id="btn">Click</button>
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click',async e => {
+            const res = await fetch('https://speed-inspiration-9612-dev-ed.scratch.my.salesforce.com/services/apexrest/v1/consultants/registered-customer-count/1190875634', {
+                method: "GET", // *GET, POST, PUT, DELETE, etc.
+                //mode: "cors", // no-cors, *cors, same-origin
+                //cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                //credentials: "same-origin", // include, *same-origin, omit
+                headers: {
+                  "Content-Type": "application/json",
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+                  "Authorization": 'Bearer 00D8G000000YhUr!ARoAQNQZ11WktPoWd1Mnmyr.jl98IHDKlWxm46DBIXSX0vWO154ot3haTmzinynV3.KuIT5ngZBY1kQpc7Mtv_Lg1TT3OsYP',
+                  "Subsidiary": 'DE'
+                }
+              })
+              const r = await res.json()
+              console.log('res :>> ', r);
+        });
+    </script>
+</body>
+</html>
